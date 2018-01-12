@@ -55,11 +55,17 @@ mxnet-model-server \
 
 With the command above executed, you have MMS running on your host, listening for inference requests.
 
-To test it out, download a [cute picture of a kitten](https://www.google.com/search?q=cute+kitten&tbm=isch&hl=en&cr=&safe=images) and name it `kitten.jpg`. Then run the following `curl` command to post an inference request with the image. In the example below both of these steps are provided.
+To test it out, download a [cute picture of a kitten](https://www.google.com/search?q=cute+kitten&tbm=isch&hl=en&cr=&safe=images) and name it `kitten.jpg`. Or, use the one-liner beloow:
 
-```bash
+````
+bash
 wget -O kitten.jpg \
   https://upload.wikimedia.org/wikipedia/commons/8/8f/Cute-kittens-12929201-1600-1200.jpg
+````
+
+Then run the following `curl` command to post an inference request with the image. 
+
+```
 curl -X POST http://127.0.0.1:8080/squeezenet/predict -F "data=@kitten.jpg"
 ```
 
